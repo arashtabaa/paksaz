@@ -72,8 +72,8 @@ body{
 .work{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start}
 .rail-col{grid-column:1}
 .main-col{grid-column:2;min-width:0;display:flex;flex-direction:column;gap:20px}
-.rail{position:sticky;top:16px;max-height:calc(100dvh - 32px);overflow:auto;
-  display:flex;flex-direction:column;gap:14px;padding-inline-end:2px;scrollbar-width:thin}
+.rail{position:sticky;top:16px;
+  display:flex;flex-direction:column;gap:14px;padding-inline-end:2px}
 @media (max-width:900px){
   .work{grid-template-columns:1fr}
   .rail-col,.main-col{grid-column:1}
@@ -324,7 +324,7 @@ textarea::placeholder{color:var(--placeholder)}
 
       <div class="foot-note">
         <span data-i18n="footL">پاک‌ساز · نسخه‌ی نمایشی</span>
-        <span class="mono">Persian text · client-side · v0.2</span>
+        <span class="mono">Persian text · client-side · v0.3</span>
       </div>
     </div>
   </main>
