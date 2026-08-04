@@ -407,7 +407,8 @@ const RE_DASH    = /[\u2014\u2013\u2015\u2012\u2212]/g;
 const RE_INVIS   = /[\u200B\u200D\u200E\u200F\u202A-\u202E\u2066-\u2069\u061C\u2060\uFEFF]/g;
 const RE_WSPACE  = /[\u00A0\u202F\u2007\u2009\u200A\u3000\u2008\u2006\u2005\u2004\u2002\u2003]/g;
 const RE_ZWNJ    = /\u200C/g;
-const RE_EMOJI   = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\uFE0F]/gu;
+// Match complete emoji grapheme sequences: flags, keycaps, skin tones and ZWJ families count as one.
+const RE_EMOJI   = /(?:[#*0-9]\uFE0F?\u20E3|\p{Regional_Indicator}{2}|(?:\p{Extended_Pictographic}|\p{Emoji_Presentation})(?:\uFE0F|\uFE0E)?(?:\p{Emoji_Modifier})?(?:\u200D(?:\p{Extended_Pictographic}|\p{Emoji_Presentation})(?:\uFE0F|\uFE0E)?(?:\p{Emoji_Modifier})?)*)/gu;
 const RE_FADIG   = /[\u06F0-\u06F9]/g;
 const RE_ARDIG   = /[\u0660-\u0669]/g;
 const arToEn = c => String.fromCharCode(c.charCodeAt(0) - 0x0660 + 48);
