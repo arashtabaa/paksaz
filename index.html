@@ -249,6 +249,8 @@ textarea::placeholder{color:var(--placeholder)}
             <label class="sw"><input type="checkbox" id="r_punct"><span class="track"></span><span class="knob"></span></label></div>
           <div class="row"><div class="lab"><span data-i18n="rSpace">اصلاح فاصله‌گذاری</span><small data-i18n="rSpaceSub">فاصله‌های اضافه و خطوط خالی</small></div>
             <label class="sw"><input type="checkbox" id="r_space" checked><span class="track"></span><span class="knob"></span></label></div>
+          <div class="row"><div class="lab"><span data-i18n="rEmoji">ایموجی</span><small data-i18n="rEmojiSub">حذف ایموجی‌ها و نشانه‌های شبیه ایموجی</small></div>
+            <label class="sw"><input type="checkbox" id="r_emoji"><span class="track"></span><span class="knob"></span></label></div>
         </div>
 
         <div class="card">
@@ -335,6 +337,7 @@ const $ = s => document.querySelector(s);
 /* ---------- i18n ---------- */
 const T = {
   fa:{
+    rEmoji:"ایموجی", rEmojiSub:"حذف ایموجی‌ها و نشانه‌های شبیه ایموجی", lblEmoji:"ایموجی",
     title:"پاک‌ساز", subtitle:"میز ویرایش متن فارسی — متنِ خام را تمیز تحویل بگیر",
     inputTitle:"ورودی", chars:"نویسه", words:"واژه", sampleBtn:"متن نمونه", clearBtn:"خالی کردن",
     inputPh:"متنی را که از هوش مصنوعی گرفته‌ای اینجا بچسبان…",
@@ -361,6 +364,7 @@ const T = {
     pillInv:"نامرئی", pillZwnj:"نیم‌فاصله", footL:"پاک‌ساز · نسخه‌ی نمایشی"
   },
   en:{
+    rEmoji:"Emojis", rEmojiSub:"Remove emojis and emoji-like symbols", lblEmoji:"Emojis",
     title:"Paksaz", subtitle:"A Persian text desk — paste raw text, get it clean",
     inputTitle:"Input", chars:"chars", words:"words", sampleBtn:"Sample text", clearBtn:"Clear",
     inputPh:"Paste the text you got from an AI here…",
@@ -403,6 +407,7 @@ const RE_DASH    = /[\u2014\u2013\u2015\u2012\u2212]/g;
 const RE_INVIS   = /[\u200B\u200D\u200E\u200F\u202A-\u202E\u2066-\u2069\u061C\u2060\uFEFF]/g;
 const RE_WSPACE  = /[\u00A0\u202F\u2007\u2009\u200A\u3000\u2008\u2006\u2005\u2004\u2002\u2003]/g;
 const RE_ZWNJ    = /\u200C/g;
+const RE_EMOJI   = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\uFE0F]/gu;
 const RE_FADIG   = /[\u06F0-\u06F9]/g;
 const RE_ARDIG   = /[\u0660-\u0669]/g;
 const arToEn = c => String.fromCharCode(c.charCodeAt(0) - 0x0660 + 48);
@@ -410,8 +415,9 @@ const faToEn = c => String.fromCharCode(c.charCodeAt(0) - 0x06F0 + 48);
 const enToFa = c => FA[+c];
 
 function clean(text, o){
-  const rep = {invis:0,harakat:0,dash:0,letters:0,digits:0,zwnj:0,quotes:0,md:0,punct:0,space:0};
+  const rep = {invis:0,harakat:0,dash:0,letters:0,digits:0,zwnj:0,quotes:0,md:0,punct:0,space:0,emoji:0};
   let t = text;
+  if(o.emoji){ rep.emoji=(t.match(RE_EMOJI)||[]).length; t=t.replace(RE_EMOJI,""); }
   if(o.letters){ rep.letters=(t.match(RE_LETTERS)||[]).length; t=t.replace(RE_LETTERS,c=>LETTER_MAP[c]); }
   if(o.digits==="fa"){ rep.digits=(t.match(RE_ARDIG)||[]).length+(t.match(/\d/g)||[]).length;
     t=t.replace(RE_ARDIG,c=>enToFa(arToEn(c))).replace(/\d/g,enToFa); }
@@ -463,16 +469,16 @@ function renderInspect(text){
 }
 
 /* ---------- state ---------- */
-const state = {zwnj:"space",digits:"fa",invis:true,harakat:true,dash:true,letters:true,quotes:true,md:false,punct:false,space:true};
+const state = {zwnj:"space",digits:"fa",invis:true,harakat:true,dash:true,letters:true,quotes:true,md:false,punct:false,space:true,emoji:false};
 function readToggles(){
   state.invis=$("#r_invis").checked; state.harakat=$("#r_harakat").checked; state.dash=$("#r_dash").checked;
   state.letters=$("#r_letters").checked; state.quotes=$("#r_quotes").checked; state.md=$("#r_md").checked;
-  state.punct=$("#r_punct").checked; state.space=$("#r_space").checked;
+  state.punct=$("#r_punct").checked; state.space=$("#r_space").checked; state.emoji=$("#r_emoji").checked;
 }
 const PRESETS = {
-  light:{invis:true,harakat:false,dash:true,letters:false,quotes:true,md:false,punct:false,space:true},
-  standard:{invis:true,harakat:true,dash:true,letters:true,quotes:true,md:false,punct:false,space:true},
-  full:{invis:true,harakat:true,dash:true,letters:true,quotes:true,md:true,punct:true,space:true}
+  light:{invis:true,harakat:false,dash:true,letters:false,quotes:true,md:false,punct:false,space:true,emoji:false},
+  standard:{invis:true,harakat:true,dash:true,letters:true,quotes:true,md:false,punct:false,space:true,emoji:false},
+  full:{invis:true,harakat:true,dash:true,letters:true,quotes:true,md:true,punct:true,space:true,emoji:true}
 };
 function applyPreset(name){
   const p=PRESETS[name]; for(const k in p) $("#r_"+k).checked=p[k]; readToggles();
@@ -505,7 +511,7 @@ function countUp(el,to){
 
 let lastRep=null, runState="idle";
 const REP_KEYS=[["invis","lblInvis"],["zwnj","lblZwnj"],["harakat","lblHarakat"],["dash","lblDash"],
-  ["letters","lblLetters"],["digits","lblDigits"],["quotes","lblQuotes"],["md","lblMd"],["punct","lblPunct"]];
+  ["letters","lblLetters"],["digits","lblDigits"],["quotes","lblQuotes"],["md","lblMd"],["punct","lblPunct"],["emoji","lblEmoji"]];
 function renderReport(rep,animate){
   const box=$("#report"); box.innerHTML=""; let total=0;
   REP_KEYS.forEach(([k,lbl])=>{

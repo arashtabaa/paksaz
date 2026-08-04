@@ -32,6 +32,8 @@
 
 ### ✨ قابلیت‌ها
 
+- حذف ایموجی‌ها و نشانه‌های شبیه ایموجی با یک قاعده‌ی اختیاری
+
 - حذف نویسه‌های پنهان، کنترلی و صفرعرض
 - حذف اعراب و کشیده‌ها
 - تبدیل حروف عربی به معادل فارسی؛ برای نمونه: `ي ك ة` → `ی ک ه`
@@ -87,6 +89,8 @@ Paste → Inspect → Tune rules → Clean → Copy / Save
 Paksaz is a fast, minimal, browser-first **Persian text cleaning workbench**. It turns pasted text from AI tools, websites, and mixed Arabic/Persian sources into cleaner, more consistent content.
 
 ### ✨ Highlights
+
+- Optional emoji and emoji-like symbol removal
 
 - Removes invisible, directional, zero-width, diacritic and tatweel characters
 - Normalizes Arabic letters into Persian equivalents
