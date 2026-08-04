@@ -4,7 +4,7 @@
 
 ### ابزار پاک‌سازی و ویرایش متن فارسی | Persian Text Refinery
 
-<img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&weight=700&size=22&pause=1200&color=2C6E63&center=true&vCenter=true&width=760&lines=%D9%85%D8%AA%D9%86+%D8%AE%D8%A7%D9%85+%D8%B1%D8%A7+%D8%AA%D9%85%DB%8C%D8%B2+%D8%AA%D8%AD%D9%88%DB%8C%D9%84+%D8%A8%DA%AF%DB%8C%D8%B1;Turn+messy+Persian+text+into+clean%2C+ready-to-use+content" alt="پاک‌ساز typing animation" />
+<img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&weight=700&size=22&pause=1200&color=2C6E63&center=true&vCenter=true&direction=right&width=760&lines=%D9%85%D8%AA%D9%86+%D8%AE%D8%A7%D9%85+%D8%B1%D8%A7+%D8%AA%D9%85%DB%8C%D8%B2+%D8%AA%D8%AD%D9%88%DB%8C%D9%84+%D8%A8%DA%AF%DB%8C%D8%B1;Turn+messy+Persian+text+into+clean%2C+ready-to-use+content" alt="پاک‌ساز typing animation" />
 
 <br />
 
@@ -19,7 +19,7 @@
   <a href="./index.html">🚀 اجرای مستقیم</a>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=2C6E63&height=120&section=header&text=Clean%20the%20signal&fontColor=FFFFFF&fontSize=28&animation=fadeIn" width="100%" alt="فناوری پاک‌سازی متن" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=2C6E63&height=120&section=header&text=Clean%20the%20signal&font=Space%20Mono&fontColor=FFFFFF&fontSize=26&fontAlignY=38&animation=fadeIn" width="100%" alt="فناوری پاک‌سازی متن" />
 
 </div>
 
