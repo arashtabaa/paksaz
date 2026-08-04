@@ -17,7 +17,7 @@
 <p>
   <a href="#فارسی">فارسی</a> ·
   <a href="#english">English</a> ·
-  <a href="./index.html">🚀 اجرای مستقیم</a>
+  <a href="https://arashtabaa.github.io/paksaz/">🚀 اجرای مستقیم</a>
 </p>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=2C6E63&height=120&section=header&text=Clean%20the%20signal&font=Space%20Mono&fontColor=FFFFFF&fontSize=26&fontAlignY=38&animation=fadeIn" width="100%" alt="فناوری پاک‌سازی متن" />
