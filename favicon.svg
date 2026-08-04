@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">پاک‌ساز</title>
   <desc id="desc">نشان حرف پ برای ابزار پاک‌سازی متن فارسی</desc>
-  <rect width="64" height="64" rx="16" fill="#1E4D45"/>
-  <path d="M17 18h22.5c7.2 0 11.5 4.2 11.5 10.3 0 6.8-4.7 10.8-12.3 10.8H27v8.7h-10V18Zm10 8v5.5h10.7c2.3 0 3.8-.9 3.8-2.8 0-1.8-1.5-2.7-3.8-2.7H27Z" fill="#F6F7F2"/>
-  <circle cx="29" cy="14" r="3" fill="#BF4631"/>
-  <circle cx="41" cy="14" r="3" fill="#BF4631"/>
-  <path d="M17 53h30" stroke="#BF4631" stroke-width="4" stroke-linecap="round"/>
+  <g transform="translate(6.4 6.4) scale(.8)">
+    <rect width="64" height="64" rx="16" fill="#1E4D45"/>
+    <path d="M17 18h22.5c7.2 0 11.5 4.2 11.5 10.3 0 6.8-4.7 10.8-12.3 10.8H27v8.7h-10V18Zm10 8v5.5h10.7c2.3 0 3.8-.9 3.8-2.8 0-1.8-1.5-2.7-3.8-2.7H27Z" fill="#F6F7F2"/>
+    <circle cx="29" cy="14" r="3" fill="#BF4631"/>
+    <circle cx="41" cy="14" r="3" fill="#BF4631"/>
+    <path d="M17 53h30" stroke="#BF4631" stroke-width="4" stroke-linecap="round"/>
+  </g>
 </svg>
