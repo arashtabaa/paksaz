@@ -4,7 +4,8 @@
 
 ### ابزار پاک‌سازی و ویرایش متن فارسی | Persian Text Refinery
 
-<img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&weight=700&size=22&pause=1200&color=2C6E63&center=true&vCenter=true&width=760&lines=%E2%80%AB%D9%85%D8%AA%D9%86+%D8%AE%D8%A7%D9%85+%D8%B1%D8%A7+%D8%AA%D9%85%DB%8C%D8%B2+%D8%AA%D8%AD%D9%88%DB%8C%D9%84+%D8%A8%DA%AF%DB%8C%D8%B1%E2%80%AC;Turn+messy+Persian+text+into+clean%2C+ready-to-use+content" alt="پاک‌ساز typing animation" />
+<div dir="rtl" align="center"><h3>متن خام را تمیز تحویل بگیر</h3></div>
+<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=700&size=20&pause=1200&color=2C6E63&center=true&vCenter=true&width=760&lines=Turn+messy+text+into+clean%2C+ready-to-use+content" alt="Paksaz typing animation" />
 
 <br />
 
